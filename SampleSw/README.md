@@ -6,7 +6,7 @@ ESP32 - FreeRTOSを使ったサンプルコード - スイッチ処理
  
 ## Description
 
- 詳細は、Qiita記事にまとめてあります。
+ 詳細は、[Qiita記事 - ESP32－FreeRTOSにて、スイッチをイベントを検出する](https://qiita.com/kotaproj/items/e9b2f56a89ff0a6a3d3a)にまとめてあります。
 
 ## Requirement
 

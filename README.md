@@ -8,9 +8,9 @@ ESP32 - FreeRTOSを使ったサンプルコード
 ## Description
 
 - SampleSW
-  - タクトスイッチを使って、
-  - 詳細は↓を参照のこと
-  - https://github.com/kotaproj/esp32Samples/tree/master/SampleSw
+  - タクトスイッチを使って、スイッチイベントを検出します
+  - 詳細は、[Qiita記事 - ESP32－FreeRTOSにて、スイッチをイベントを検出する](https://qiita.com/kotaproj/items/e9b2f56a89ff0a6a3d3a)参照のこと 
+  - コードは、[スイッチ検出](https://github.com/kotaproj/esp32Samples/tree/master/SampleSw)
 
 ## Requirement
 
@@ -24,7 +24,7 @@ ESP32 - FreeRTOSを使ったサンプルコード
 ## Usage
 
 * 各プロジェクトごとの接続を確認のこと
-  * [スイッチ処理](https://github.com/kotaproj/esp32Samples/tree/master/SampleSw)
+  * [スイッチ検出](https://github.com/kotaproj/esp32Samples/tree/master/SampleSw)
 
 ## Install
 
