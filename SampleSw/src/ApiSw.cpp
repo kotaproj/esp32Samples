@@ -39,18 +39,27 @@ static TimerHandle_t s_xTimers[] = {
 static SwCode_t xReadApiSw( void);
 
 static void isrSwCode(SwCode_t xSwCode);
-static void IRAM_ATTR isrSwCodeNo1();
-static void IRAM_ATTR isrSwCodeNo2();
-static void IRAM_ATTR isrSwCodeNo3();
-static void IRAM_ATTR isrSwCodeNo4();
-static void IRAM_ATTR isrSwCodeNo5();
-
 static void vTimerCallback(SwCode_t xCmp);
-static void vTimerCallbackNo1( TimerHandle_t xTimer);
-static void vTimerCallbackNo2( TimerHandle_t xTimer);
-static void vTimerCallbackNo3( TimerHandle_t xTimer);
-static void vTimerCallbackNo4( TimerHandle_t xTimer);
-static void vTimerCallbackNo5( TimerHandle_t xTimer);
+#if USE_SW_NO1
+	static void IRAM_ATTR isrSwCodeNo1();
+	static void vTimerCallbackNo1( TimerHandle_t xTimer);
+#endif
+#if USE_SW_NO2
+	static void IRAM_ATTR isrSwCodeNo2();
+	static void vTimerCallbackNo2( TimerHandle_t xTimer);
+#endif
+#if USE_SW_NO3
+	static void IRAM_ATTR isrSwCodeNo3();
+	static void vTimerCallbackNo3( TimerHandle_t xTimer);
+#endif
+#if USE_SW_NO4
+	static void IRAM_ATTR isrSwCodeNo4();
+	static void vTimerCallbackNo4( TimerHandle_t xTimer);
+#endif
+#if USE_SW_NO5
+	static void IRAM_ATTR isrSwCodeNo5();
+	static void vTimerCallbackNo5( TimerHandle_t xTimer);
+#endif
 
 static void vSendSw(SwCode_t xCode, SwType_t xType);
 static int32_t ulSearchSwGpioAsgn(SwCode_t xCode);
@@ -188,50 +197,100 @@ static void vTimerCallback(SwCode_t xCmp)
 	return;
 }
 
-/**
- * @brief スイッチNo1のタイマーコールバック関数
- */
-static void vTimerCallbackNo1( TimerHandle_t xTimer)
-{
-	vTimerCallback(SW_CODE_NO1);
-	xTimerStop( xTimer, 0);
-}
+#if USE_SW_NO1
+	/**
+	 * @brief スイッチNo1のタイマーコールバック関数
+	 */
+	static void vTimerCallbackNo1( TimerHandle_t xTimer)
+	{
+		vTimerCallback(SW_CODE_NO1);
+		xTimerStop( xTimer, 0);
+	}
 
-/**
- * @brief スイッチNo2のタイマーコールバック関数
- */
-static void vTimerCallbackNo2( TimerHandle_t xTimer)
-{
-	vTimerCallback(SW_CODE_NO2);
-	xTimerStop( xTimer, 0);
-}
+	/**
+	 * @brief スイッチ割り込み処理 - NO1
+	 */
+	static void IRAM_ATTR isrSwCodeNo1()
+	{
+		isrSwCode(SW_CODE_NO1);
+	}
+#endif
 
-/**
- * @brief スイッチNo3のタイマーコールバック関数
- */
-static void vTimerCallbackNo3( TimerHandle_t xTimer)
-{
-	vTimerCallback(SW_CODE_NO3);
-	xTimerStop( xTimer, 0);
-}
+#if USE_SW_NO2
+	/**
+	 * @brief スイッチNo2のタイマーコールバック関数
+	 */
+	static void vTimerCallbackNo2( TimerHandle_t xTimer)
+	{
+		vTimerCallback(SW_CODE_NO2);
+		xTimerStop( xTimer, 0);
+	}
 
-/**
- * @brief スイッチNo4のタイマーコールバック関数
- */
-static void vTimerCallbackNo4( TimerHandle_t xTimer)
-{
-	vTimerCallback(SW_CODE_NO4);
-	xTimerStop( xTimer, 0);
-}
+	/**
+	 * @brief スイッチ割り込み処理 - NO2
+	 */
+	static void IRAM_ATTR isrSwCodeNo2()
+	{
+		isrSwCode(SW_CODE_NO2);
+	}
+#endif
 
-/**
- * @brief スイッチNo5のタイマーコールバック関数
- */
-static void vTimerCallbackNo5( TimerHandle_t xTimer)
-{
-	vTimerCallback(SW_CODE_NO5);
-	xTimerStop( xTimer, 0);
-}
+#if USE_SW_NO3
+	/**
+	 * @brief スイッチNo3のタイマーコールバック関数
+	 */
+	static void vTimerCallbackNo3( TimerHandle_t xTimer)
+	{
+		vTimerCallback(SW_CODE_NO3);
+		xTimerStop( xTimer, 0);
+	}
+
+	/**
+	 * @brief スイッチ割り込み処理 - NO3
+	 */
+	static void IRAM_ATTR isrSwCodeNo3()
+	{
+		isrSwCode(SW_CODE_NO3);
+	}
+#endif
+
+#if USE_SW_NO4
+	/**
+	 * @brief スイッチNo4のタイマーコールバック関数
+	 */
+	static void vTimerCallbackNo4( TimerHandle_t xTimer)
+	{
+		vTimerCallback(SW_CODE_NO4);
+		xTimerStop( xTimer, 0);
+	}
+
+	/**
+	 * @brief スイッチ割り込み処理 - NO4
+	 */
+	static void IRAM_ATTR isrSwCodeNo4()
+	{
+		isrSwCode(SW_CODE_NO4);
+	}
+#endif
+
+#if USE_SW_NO5
+	/**
+	 * @brief スイッチNo5のタイマーコールバック関数
+	 */
+	static void vTimerCallbackNo5( TimerHandle_t xTimer)
+	{
+		vTimerCallback(SW_CODE_NO5);
+		xTimerStop( xTimer, 0);
+	}
+
+	/**
+	 * @brief スイッチ割り込み処理 - NO5
+	 */
+	static void IRAM_ATTR isrSwCodeNo5()
+	{
+		isrSwCode(SW_CODE_NO5);
+	}
+#endif
 
 /**
  * @brief 管理タスクへスイッチイベントを通知
@@ -240,15 +299,10 @@ static void vSendSw(SwCode_t xCode, SwType_t xType)
 {
 	static int32_t s_count = 0;
 	s_count++;
-	Serial.printf("%s : run\n",__func__);
+	// Serial.printf("%s : run\n",__func__);
 	Serial.printf("%s : xCode:%d, xType:%d, count:%d\n",__func__ ,xCode, xType ,s_count);
 
-	// static SwMessage_t s_xMessage;
-
-	// s_xMessage.ulCode = ulCode;
-	// s_xMessage.ulType = ulType;
-
-	// vCallbackCtlMsgSw(UID_TRG_SW, UID_CTL, &s_xMessage);
+	return;
 }
 
 /**
@@ -282,54 +336,16 @@ static void isrSwCode(SwCode_t xSwCode)
 
 	ulRef = ulSearchSwGpioAsgn(xSwCode);
 	
-	// 割り込み時のスイッチ状態
-	s_xBakSwCode = xReadApiSw();
+	// 割り込み要因の保持
+	s_xBakSwCode = xSwCode;
+
+	// タイマー起動
 	xTimerStartFromISR(s_xTimers[ulRef], &xHigherPriorityTaskWoken);
 
 	// 割り込みデタッチ
 	detachInterrupt(digitalPinToInterrupt(c_xaSwGpioAsgn_t[ulRef].ucPin));
 
 	return;
-}
-
-/**
- * @brief スイッチ割り込み処理 - NO1
- */
-static void IRAM_ATTR isrSwCodeNo1()
-{
-	isrSwCode(SW_CODE_NO1);
-}
-
-/**
- * @brief スイッチ割り込み処理 - NO2
- */
-static void IRAM_ATTR isrSwCodeNo2()
-{
-	isrSwCode(SW_CODE_NO2);
-}
-
-/**
- * @brief スイッチ割り込み処理 - NO3
- */
-static void IRAM_ATTR isrSwCodeNo3()
-{
-	isrSwCode(SW_CODE_NO3);
-}
-
-/**
- * @brief スイッチ割り込み処理 - NO4
- */
-static void IRAM_ATTR isrSwCodeNo4()
-{
-	isrSwCode(SW_CODE_NO4);
-}
-
-/**
- * @brief スイッチ割り込み処理 - NO5
- */
-static void IRAM_ATTR isrSwCodeNo5()
-{
-	isrSwCode(SW_CODE_NO5);
 }
 
 /**
