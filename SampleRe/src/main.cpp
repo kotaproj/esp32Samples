@@ -1,17 +1,20 @@
 #include <Arduino.h>
-#include "ApiSw.h"
+#include "ApiRe.h"
 
 void setup() {
 	// put your setup code here, to run once:
 	Serial.begin(115200);
+	delay(100);
+	Serial.printf("%s - run",__func__);
 
 	ErType_t xErType;
 
-	xErType = xInitSw();
+	xErType = xInitRe();
 	if( ER_OK != xErType )
 	{
-		Serial.printf("%s - error - %d",__func__ ,xErType);
+		Serial.printf("%s - error - %d\n",__func__ ,xErType);
 	}
+	Serial.printf("%s - over\n",__func__);
 }
 
 void loop() {

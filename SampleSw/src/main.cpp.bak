@@ -12,7 +12,6 @@ void setup() {
 	{
 		Serial.printf("%s - error - %d",__func__ ,xErType);
 	}
-	Serial.printf("%s - ok - %d",__func__ ,xErType);
 }
 
 void loop() {

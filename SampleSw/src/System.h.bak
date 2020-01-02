@@ -49,9 +49,9 @@ typedef enum
 {
 	UID_DEBUG      = (0),	///< デバッグ用
 	UID_CTL        ,		///< 管理タスク
-	UID_SW         ,		///< スイッチ
+	UID_TRG_SW     ,		///< スイッチ
 	UID_RE  	   ,		///< ロータリーエンコーダ
-	UID_RCV_UART   ,		///< UART受信
+	UID_TRG_UART   ,		///< UART
 	UID_HC         ,		///< HTTP Client
 	UID_DISP       ,		///< DISPLAY
 	UID_DUMMY      ,		///< ダミー用

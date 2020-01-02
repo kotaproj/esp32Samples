@@ -1,14 +1,14 @@
 /**
- * @file ApiSw.h
- * @brief スイッチ管理
+ * @file ApiRe.h
+ * @brief ロータリーエンコーダ管理
  */
 
-#ifndef _API_SW_H_
-#define _API_SW_H_
+#ifndef _API_RE_H_
+#define _API_RE_H_
 
 /* INCLUDES *******************************************************************/
 #include "System.h"
-#include "System_Sw.h"
+#include "System_Re.h"
 
 /******************************************************************************/
 #ifdef	__cplusplus
@@ -16,7 +16,7 @@ extern "C" {
 #endif
 
 ///	@cond
-#ifdef _API_SW_C_
+#ifdef _API_RE_C_
 #define EXTERN
 #else
 #define EXTERN extern
@@ -28,7 +28,7 @@ extern "C" {
 /* VARIABLES ******************************************************************/
 
 /* PROTOTYPES *****************************************************************/
-EXTERN ErType_t xInitSw( void);
+EXTERN ErType_t xInitRe( void);
 
 /******************************************************************************/
 #undef EXTERN
@@ -36,4 +36,4 @@ EXTERN ErType_t xInitSw( void);
 #ifdef	__cplusplus
 	}
 #endif
-#endif	/* _API_SW_H_ */
+#endif	/* _API_RE_H_ */

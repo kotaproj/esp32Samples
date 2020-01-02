@@ -22,11 +22,11 @@
 	#if USE_SW_NO3
 	#define SW_GPIO_ASGN_NO3	(23)
 	#endif	//USE_SW_NO3
-#define USE_SW_NO4		1
+#define USE_SW_NO4		0
 	#if USE_SW_NO4
 	#define SW_GPIO_ASGN_NO4	(14)
 	#endif	//USE_SW_NO4
-#define USE_SW_NO5		1
+#define USE_SW_NO5		0
 	#if USE_SW_NO5
 	#define SW_GPIO_ASGN_NO5	(15)
 	#endif	//USE_SW_NO5
