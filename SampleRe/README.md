@@ -6,8 +6,7 @@ ESP32 - FreeRTOSを使ったサンプルコード - ロータリーエンコー�
  
 ## Description
 
- 詳細は、Qiita記事に記載予定です。
- <!-- 詳細は、[Qiita記事 - ESP32－FreeRTOSにて、スイッチをイベントを検出する](https://qiita.com/kotaproj/items/e9b2f56a89ff0a6a3d3a)にまとめてあります。 -->
+ 詳細は、[Qiita記事 - ESP32－FreeRTOSにて、ロータリーエンコーダのイベントを検出する](https://qiita.com/kotaproj/items/429c79c810e96158c583)にまとめてあります。
 
 ## Requirement
 

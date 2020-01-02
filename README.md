@@ -7,10 +7,14 @@ ESP32 - FreeRTOSを使ったサンプルコード
 
 ## Description
 
-- SampleSW
+- SampleSw
   - タクトスイッチを使って、スイッチイベントを検出します
   - 詳細は、[Qiita記事 - ESP32－FreeRTOSにて、スイッチをイベントを検出する](https://qiita.com/kotaproj/items/e9b2f56a89ff0a6a3d3a)参照のこと 
   - コードは、[スイッチ検出](https://github.com/kotaproj/esp32Samples/tree/master/SampleSw)
+- SampleRe
+  - ロータリーエンコーダを使って、回転イベントを検出します
+  - 詳細は、[Qiita記事 - ESP32－FreeRTOSにて、ロータリーエンコーダのイベントを検出する](https://qiita.com/kotaproj/items/429c79c810e96158c583)参照のこと 
+  - コードは、[回転の検出](https://github.com/kotaproj/esp32Samples/tree/master/SampleRe)
 
 ## Requirement
 
@@ -18,6 +22,8 @@ ESP32 - FreeRTOSを使ったサンプルコード
 * Arduino IDE 1.8.10
   * Esplora Built-In by Arduino 1.0.4
   * FreeRTOS by Richard Barry 10.2.0-3
+  * RotaryEncoder by Matthias Hertel 1.3.0
+    * [Github - RotaryEncoder](https://github.com/mathertel/RotaryEncoder)
 * vscode 1.41.1
   * PlatformIO - Home 3.0.1, Core 4.1.0
 
@@ -25,6 +31,7 @@ ESP32 - FreeRTOSを使ったサンプルコード
 
 * 各プロジェクトごとの接続を確認のこと
   * [スイッチ検出](https://github.com/kotaproj/esp32Samples/tree/master/SampleSw)
+  * [回転の検出](https://github.com/kotaproj/esp32Samples/tree/master/SampleRe)
 
 ## Install
 
