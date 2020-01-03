@@ -15,6 +15,10 @@ ESP32 - FreeRTOSを使ったサンプルコード
   - ロータリーエンコーダを使って、回転イベントを検出します
   - 詳細は、[Qiita記事 - ESP32－FreeRTOSにて、ロータリーエンコーダのイベントを検出する](https://qiita.com/kotaproj/items/429c79c810e96158c583)参照のこと 
   - コードは、[回転の検出](https://github.com/kotaproj/esp32Samples/tree/master/SampleRe)
+- SampleJs
+  - ジョイスティックを使って、状態イベントを検出します
+  - 詳細は、[Qiita記事 - ESP32－FreeRTOSにて、ジョイスティックのイベントを検出する](https://qiita.com/kotaproj/items/c191883a15cfc5ec27c0)参照のこと 
+  - コードは、[回転の検出](https://github.com/kotaproj/esp32Samples/tree/master/SampleJs)
 
 ## Requirement
 
@@ -32,6 +36,7 @@ ESP32 - FreeRTOSを使ったサンプルコード
 * 各プロジェクトごとの接続を確認のこと
   * [スイッチ検出](https://github.com/kotaproj/esp32Samples/tree/master/SampleSw)
   * [回転の検出](https://github.com/kotaproj/esp32Samples/tree/master/SampleRe)
+  * [ジョイスティックの検出](https://github.com/kotaproj/esp32Samples/tree/master/SampleJs)
 
 ## Install
 
